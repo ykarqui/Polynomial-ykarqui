@@ -90,5 +90,35 @@ public class LinkedList implements IList {
         public Nodo(int value) {
             this.value = value;
         }
+
     }
+
+// 1. Polynomial(): ​ 
+        //     este constructor debe crear un objeto ​ Polynomial ​ igual al polinomio 0(cero) (grado n = 0).
+        // public Polynomial(){
+        //     this.coefficient = 0;
+        //     this.exponent = 0;
+        //}
+        // 2. Polynomial(int coef[]): ​ 
+        //     este constructor debe crear un objeto ​ Polynomial ​ cuyo grado sea igual al tamaño del arreglo coef, 
+        //     y cuyos coeficientes sean tomados uno a uno desde el mismo arreglo ​ coef ​ que entra como parámetro,
+        //     en orden inverso, pero considerando que si algún casillero ​ coef[k] ​ es cero,
+        //      entonces el término correspondiente en el polinomio no existe y ​ no debe agregarse ​ .
+        //public Polynomial(int coef []) {
+        //    Nodo nodo = new Nodo();
+        //    nodo.coefficient[0] = coef[0];
+        //}
+        // 3. Polynomial add(Polynomial pol): 
+        //     retorna un ​ Polynomial i ​ gual a la suma entre ​ this ​ y pol ​ .
+        // 4. int getCoefficient(int x): ​
+        //     Devuelve el valor del coeficiente del grado ​ x
+        // 5. void setCoefficient(int x, int coef): 
+        //     establece el valor del coeficiente de grado x al valor ​ coef
+        // 6. float valueOf(float x): ​ 
+        //     calcula y retorna el valor del polinomio en el punto x.
+        // 7. boolean equals(Object x): ​ 
+        //     retorna t ​ rue ​ si ​ this ​ es igual a ​ x ​ , y ​ false ​ en caso contrario.
+        // 8. String toString(): 
+        //     retorna la representación del ​ Polynomial ​ en forma de ​ String ​ .
+
 }
