@@ -93,21 +93,13 @@ public class LinkedList implements IList {
 
     }
 
-// 1. Polynomial(): ​ 
+        // 1. Polynomial(): ​ 
         //     este constructor debe crear un objeto ​ Polynomial ​ igual al polinomio 0(cero) (grado n = 0).
-        // public Polynomial(){
-        //     this.coefficient = 0;
-        //     this.exponent = 0;
-        //}
         // 2. Polynomial(int coef[]): ​ 
         //     este constructor debe crear un objeto ​ Polynomial ​ cuyo grado sea igual al tamaño del arreglo coef, 
         //     y cuyos coeficientes sean tomados uno a uno desde el mismo arreglo ​ coef ​ que entra como parámetro,
         //     en orden inverso, pero considerando que si algún casillero ​ coef[k] ​ es cero,
         //      entonces el término correspondiente en el polinomio no existe y ​ no debe agregarse ​ .
-        //public Polynomial(int coef []) {
-        //    Nodo nodo = new Nodo();
-        //    nodo.coefficient[0] = coef[0];
-        //}
         // 3. Polynomial add(Polynomial pol): 
         //     retorna un ​ Polynomial i ​ gual a la suma entre ​ this ​ y pol ​ .
         // 4. int getCoefficient(int x): ​

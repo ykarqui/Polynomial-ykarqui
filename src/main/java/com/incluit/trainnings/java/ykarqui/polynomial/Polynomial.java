@@ -37,6 +37,8 @@ public class Polynomial {
         }
     }
 
+    // 1. Polynomial(): ​ 
+    //     este constructor debe crear un objeto ​ Polynomial ​ igual al polinomio 0(cero) (grado n = 0).
     public Polynomial(){
         Polynomial empty = new Polynomial();
         empty.add();
