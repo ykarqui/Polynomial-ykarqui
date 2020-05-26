@@ -4,10 +4,11 @@ import java.util.NoSuchElementException;
 
 public class Polynomial {
 
-    private Nodo root;
-    private int size;
+    Nodo root;
+    int size;
 
     public void add() {
+        System.out.println("LLega a add");
         Nodo n = new Nodo(0,0);
         if (root == null) {
             root = n;
@@ -40,8 +41,17 @@ public class Polynomial {
     // 1. Polynomial(): ​ 
     //     este constructor debe crear un objeto ​ Polynomial ​ igual al polinomio 0(cero) (grado n = 0).
     public Polynomial(){
-        Polynomial empty = new Polynomial();
-        empty.add();
+        Nodo n = new Nodo(0,0);
+        if (root == null) {
+            root = n;
+        } else {
+            Nodo p = root;
+            while (p.next != null) {
+                p = p.next;
+            }
+            p.next = n;
+        }
+        size ++;
     }
 
     // 2. Polynomial(int coef[]): ​ 
@@ -50,9 +60,21 @@ public class Polynomial {
     //     en orden inverso, pero considerando que si algún casillero ​ coef[k] ​ es cero,
     //      entonces el término correspondiente en el polinomio no existe y ​ no debe agregarse ​ .
     public Polynomial(int coef []) {
-        Polynomial polyn = new Polynomial();
         for (int i = 0; i < coef.length; i++){
-            polyn.addCoef(coef[i]);
+            if (coef[i] != 0) {
+                Nodo n = new Nodo(coef[i], i);
+                size ++;
+                if (root == null) {
+                    root = n;
+                } else {
+                    Nodo p = root;
+                    while (p.next != null) {
+                        p = p.next;
+                    }
+                p.next = n;
+                }
+            
+        }
         }
     }
 
@@ -188,7 +210,7 @@ public class Polynomial {
     }
 
 
-    private static class Nodo {
+    static class Nodo {
         int coefficient;
         int exponent;
         Nodo next;
