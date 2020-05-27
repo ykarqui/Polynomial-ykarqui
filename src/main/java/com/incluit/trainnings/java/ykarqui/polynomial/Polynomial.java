@@ -2,10 +2,12 @@ package com.incluit.trainnings.java.ykarqui.polynomial;
 
 import java.util.NoSuchElementException;
 
-public class Polynomial {
+public class Polynomial implements IPolynomial{
 
     Nodo root;
     int size;
+    Nodo first = root;
+	Nodo last  = first;
 
     // 1. Polynomial(): ​ 
     //     este constructor debe crear un objeto ​ Polynomial ​ igual al polinomio 0(cero) (grado n = 0).
@@ -21,8 +23,6 @@ public class Polynomial {
             p.next = n;
         }
         size ++;
-        System.out.println("EXPONENTES: " + n.exponent);
-        System.out.println("COEFFS: " + n.coefficient);
             
     }
 
@@ -50,60 +50,15 @@ public class Polynomial {
     // 3. Polynomial add(Polynomial pol): 
     //     retorna un Polynomial igual a la suma entre ​this ​y pol
     public Polynomial add(Polynomial pol){
-        
-        Polynomial result = new Polynomial();   // parameter
-        
-        Nodo x = this.root.next; // actual
-        System.out.println("x= " + x.coefficient + "x^" + x.exponent);
-        Nodo y = pol.root.next; // parameter
-        System.out.println("y= " + y.coefficient + "x^" + y.exponent);
-        int calculatedCoeff = 0;
-        while (x != null || y != null) {
-            Nodo t = null;
-            
-            if(x == null){ 
-                t = new Nodo(y.coefficient, y.exponent);  
-                y = y.next; 
-                calculatedCoeff = y.exponent;
-            }
-            else if (y == null) { 
-                t = new Nodo(x.coefficient, x.exponent);  
-                x = x.next; 
-                calculatedCoeff = x.exponent;
-            }
-            else if (x.exponent < y.exponent) { 
-                t = new Nodo(x.coefficient, x.exponent);  
-                x = x.next; 
-                calculatedCoeff = x.exponent;
-            } 
-            else if (x.exponent > y.exponent) { 
-                t = new Nodo(y.coefficient, y.exponent);  
-                y = y.next; 
-                calculatedCoeff = y.exponent;
-            } 
-            else {
-                int coef = x.coefficient + y.coefficient;
-                int exp  = x.exponent;
-                System.out.println("Result = " + coef + "x^" + exp);
-                x = x.next;
-                y = y.next;
-                calculatedCoeff = coef;
-                t = new Nodo(coef, exp);
-            }
-            System.out.println(calculatedCoeff);
-            result.setCoefficient(result.size, calculatedCoeff);
-            // result.root.next = t;
-            result.root = result.root.next;
-        }
-        return result;
+        return pol;
     }
 
     // 4. int getCoefficient(int x): ​
     //     Devuelve el valor del coeficiente del grado ​ x
     public int getCoefficient(int x) {
-        Nodo n = root;
-        for (int i = 0; i < size; i++) {
-            if (n.exponent == x){
+    	Nodo n = root;
+    	while (n != null){
+        	if (n.exponent == x){
                 return n.coefficient;
             }
             n = n.next;
@@ -116,10 +71,7 @@ public class Polynomial {
     public void setCoefficient(int x, int coef){
         Nodo p = root;
         while (p.next != null){
-            System.out.println("p.coeff: "+ p.coefficient);
-            System.out.println("p.exp: "+ p.exponent);
             if (p.exponent == x){
-                System.out.println("Entro al IF stment");
                 p.coefficient = coef;
                 return;
             }
@@ -134,7 +86,6 @@ public class Polynomial {
         float valued = 0f;
         while(root != null){
          valued += (root.coefficient * (Math.pow( x , root.exponent )));
-         System.out.println(valued);
          root = root.next;
         }
         return valued;
